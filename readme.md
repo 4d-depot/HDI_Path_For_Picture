@@ -1,4 +1,4 @@
-# HDI_Template_v20
+# HDI_Path_For_Picture
 
 HDI to explain how to assign a path to a blob or picture field in ORDA.
 
