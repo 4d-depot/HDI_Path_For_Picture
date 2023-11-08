@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
+<base name="HDI_Path_For_Picture" uuid="2D4F6103DC084198BFC0283C03D0A0B2" collation_locale="en">
+	<schema name="DEFAULT_SCHEMA"/>
+	<table name="INFO" uuid="107A367EBCC346259FD971E8FC1097DA" id="1">
+		<field name="ID" uuid="C6DBB917EEE44AF9BDA57ABA22C55C6B" type="4" unique="true" autosequence="true" not_null="true" id="1">
+			<field_extra position="1"/>
+		</field>
+		<field name="Description" uuid="C9EFE648E9234AADA33FB25D61C0190B" type="10" never_null="true" id="2">
+			<field_extra position="4"/>
+		</field>
+		<field name="TabTitle" uuid="58AF214936C941439CB263026A5B46ED" type="10" limiting_length="255" never_null="true" id="3">
+			<field_extra position="3"/>
+		</field>
+		<field name="PageNumber" uuid="A2D86BBFD5134D06999CBDD14FD07A27" type="4" never_null="true" id="4">
+			<field_extra position="2"/>
+		</field>
+		<primary_key field_name="ID" field_uuid="C6DBB917EEE44AF9BDA57ABA22C55C6B"/>
+		<table_extra input_form="Input" output_form="Output">
+			<editor_table_info fields_ordering="2" displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="0" top="0" width="120" height="167.33203125"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Equipment" uuid="8ECECBCD6FE07E46AA2C7716E3C975B7" id="2">
+		<field name="ID" uuid="95D4C31776971C43B4348505CB137E84" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="Picture" uuid="E9BC6354F343964EB39259E0F52E921F" type="12" never_null="true" id="2"/>
+		<field name="Type" uuid="5B078C31F9ED8148B06085588CFA792E" type="10" never_null="true" id="3"/>
+		<field name="Room" uuid="71C90A2DEE71E943ADEB9101F1A95078" type="4" never_null="true" id="4"/>
+		<primary_key field_name="ID" field_uuid="95D4C31776971C43B4348505CB137E84"/>
+		<table_extra>
+			<editor_table_info displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="207" top="6" width="120" height="167.33203125"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<table name="Room" uuid="C64BD67FDBEE394684D2BA25DBB11AA0" id="3">
+		<field name="ID" uuid="97E95285142B754FA0E972FDB240070E" type="4" unique="true" autosequence="true" not_null="true" id="1"/>
+		<field name="Name" uuid="49D63DC1AE8F094987622005FEE468B0" type="10" limiting_length="255" never_null="true" id="2"/>
+		<field name="X" uuid="EE8A388FC3397B42AE932CC1A56963FC" type="3" never_null="true" id="3"/>
+		<field name="Y" uuid="CF7EF771B8BB7643B355CADEB875FBC9" type="3" never_null="true" id="4"/>
+		<primary_key field_name="ID" field_uuid="97E95285142B754FA0E972FDB240070E"/>
+		<table_extra>
+			<editor_table_info displayable_fields_count="6">
+				<color red="255" green="255" blue="255" alpha="0"/>
+				<coordinates left="388" top="7" width="120" height="167.33203125"/>
+			</editor_table_info>
+		</table_extra>
+	</table>
+	<relation uuid="17A03DD1D44D174D86C5A64A9084AEFF" name_Nto1="Link_1" name_1toN="Link_1_return" auto_load_Nto1="false" auto_load_1toN="false" foreign_key="false" state="1">
+		<related_field kind="source">
+			<field_ref uuid="71C90A2DEE71E943ADEB9101F1A95078" name="Room">
+				<table_ref uuid="8ECECBCD6FE07E46AA2C7716E3C975B7" name="Equipment"/>
+			</field_ref>
+		</related_field>
+		<related_field kind="destination">
+			<field_ref uuid="97E95285142B754FA0E972FDB240070E" name="ID">
+				<table_ref uuid="C64BD67FDBEE394684D2BA25DBB11AA0" name="Room"/>
+			</field_ref>
+		</related_field>
+		<relation_extra entry_wildchar="false" entry_create="false" choice_field="0" entry_autofill="false">
+			<editor_relation_info via_point_x="0" via_point_y="0" prefers_left="false" smartlink="true">
+				<color red="240" green="240" blue="240" alpha="0"/>
+			</editor_relation_info>
+		</relation_extra>
+	</relation>
+	<index kind="regular" uuid="3CC566FE2D69FD4492B241AE93BE2A12" type="7">
+		<field_ref uuid="71C90A2DEE71E943ADEB9101F1A95078" name="Room">
+			<table_ref uuid="8ECECBCD6FE07E46AA2C7716E3C975B7" name="Equipment"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="651943EF56D3D64EA264EE7892637FC6" type="7">
+		<field_ref uuid="97E95285142B754FA0E972FDB240070E" name="ID">
+			<table_ref uuid="C64BD67FDBEE394684D2BA25DBB11AA0" name="Room"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="B17E3BF54450493DB72FBD48A5745784" type="7">
+		<field_ref uuid="C6DBB917EEE44AF9BDA57ABA22C55C6B" name="ID">
+			<table_ref uuid="107A367EBCC346259FD971E8FC1097DA" name="INFO"/>
+		</field_ref>
+	</index>
+	<index kind="regular" unique_keys="true" uuid="DDF878B3F616454DA3DF14ED69BD3CF8" type="7">
+		<field_ref uuid="95D4C31776971C43B4348505CB137E84" name="ID">
+			<table_ref uuid="8ECECBCD6FE07E46AA2C7716E3C975B7" name="Equipment"/>
+		</field_ref>
+	</index>
+	<base_extra package_name="HDI_Template_v18" structure_file_name="HowDoI" data_file_path=":HowDoI.4DD">
+		<journal_file journal_file_enabled="false"/>
+	</base_extra>
+</base>
