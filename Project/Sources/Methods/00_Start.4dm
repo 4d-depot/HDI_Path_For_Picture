@@ -28,7 +28,7 @@ Case of
 		
 		$options:=New object:C1471
 		
-		$options.title:="Assigning a path to a picture or blob field"
+		$options.title:="Assigning a path to a picture or blob attribute"
 		
 		$options.blog:="blog.4d.com"
 		$options.info:="ORDA feature"  //ex : "4D View Pro feature"
